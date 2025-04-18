@@ -17,7 +17,7 @@ describe("RewardsHook", function () {
     const RewardsHook = await ethers.getContractFactory("RewardsHook");
 
     rewardToken = await RewardToken.deploy();
-    rewardsHook = await RewardsHook.deploy();
+    rewardsHook = await RewardsHook.deploy(10);
 
     await rewardToken.mint(owner.address, donationAmount);
     await rewardToken.connect(owner).approve(rewardsHook.target, donationAmount);
